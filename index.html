@@ -1,236 +1,520 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+
 <head>
-<meta charset="utf-8">
-<title>三千石</title>
-<link href="https://cdn.bootcss.com/fullPage.js/2.9.6/jquery.fullpage.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/fullPage.js/2.9.6/jquery.fullpage.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>三千石数据有限公司-专业打造深度学习平台</title>
 
-<style>
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300);
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  list-style: none;
-  text-decoration: none;
-  box-sizing: border-box;
-  color: #fff;
-  background: transparent;
-  border: none;
-}
-body {
-  background: #141414;
-  font-family: 'Roboto', sans-serif;
-}
-.wrap {
-  max-width: 830px;
-  margin: 0 auto;
-}
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 58px;
-  height: 80px;
-  text-transform: uppercase;
-  font-weight: 700;
-  overflow: hidden;
-  line-height: 4;
-  -webkit-transition: line-height 0.85s cubic-bezier(0.77, 0, 0.175, 1);
-  transition: line-height 0.85s cubic-bezier(0.77, 0, 0.175, 1);
-}
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
-  /*height: 20px;*/
-  overflow: hidden;
-  line-height: 4;
-  -webkit-transition: line-height 0.85s cubic-bezier(0.77, 0, 0.175, 1);
-  margin-bottom: 30px;
-  transition: line-height 0.85s cubic-bezier(0.77, 0, 0.175, 1);
-}
-h1 {
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
-h2 {
-  margin-top: -6px;
-  font-weight: 300;
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
-.two {
-  text-align: right;
-}
-.two .cta {
-  float: right;
-}
-.section.active h1 {
-  line-height: 1;
-  -webkit-transition-delay: .3s;
-  transition-delay: .3s;
-}
-.section.active h2 {
-  line-height: 1;
-  -webkit-transition-delay: .8s;
-  transition-delay: .8s;
-}
-.section.active .cta {
-  opacity: 1;
-  transform: translateX(0px);
-  -webkit-transform: translateX(0px);
-  -moz-transform: translateX(0px);
-}
-.cta {
-  -webkit-transition: all 0.85s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-  transition: all 0.85s cubic-bezier(0.77, 0, 0.175, 1) 1.4s;
-  display: block;
-  cursor: pointer;
-  width: 175px;
-  height: 50px;
-  position: relative;
-  opacity: 0;
-  transform: translateX(-30px);
-  -webkit-transform: translateX(-30px);
-  -moz-transform: translateX(-30px);
-}
-.cta:before {
-  content: "";
-  opacity: 0.2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 175px;
-  height: 50px;
-  transition: 0.4s all ease-out;
-  -webkit-transition: 0.4s all ease-out;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE3NSA1MCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTc1IDUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9PC9zdHlsZT48cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjE2OCw0OC41IDcsNDguNSAxLjUsNDIuMyAxLjUsNy43IDcsMS41IDE2OCwxLjUgMTczLjUsNy43IDE3My41LDQyLjMgIi8+PC9zdmc+);
-}
-.cta:after {
-  content: ">";
-  opacity: 0.3;
-  color: #fff;
-  height: 50px;
-  line-height: 50px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  right: 40px;
-  transition: 0.3s all ease-out;
-  -webkit-transition: 0.3s all ease-out;
-}
-.cta span {
-  color: #fff;
-  text-align: center;
-  width: 80%;
-  display: block;
-  font-size: 14px;
-  height: 50px;
-  line-height: 50px;
-  font-weight: 500;
-  transition: 0.3s all ease-out;
-  -webkit-transition: 0.3s all ease-out;
-}
-.cta:hover span {
-  width: 100%;
-}
-.cta:hover:before {
-  opacity: 0.5;
-}
-.cta:hover:after {
-  opacity: 0;
-  right: 0px;
-  transition: 0.2s all ease-out;
-  -webkit-transition: 0.2s all ease-out;
-}
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li a.active span,
-#fp-nav ul li:hover a.active span,
-.fp-slidesNav ul li:hover a.active span {
-  height: 12px;
-  width: 12px;
-  margin: -6px 0 0 -6px;
-  border-radius: 0;
-  background: transparent;
-  border: solid 1px #fff;
-}
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-  border-radius: 0;
-  position: absolute;
-  z-index: 1;
-  height: 4px;
-  width: 4px;
-  border: 0;
-  background: #fff;
-  left: 50%;
-  top: 50%;
-  margin: -2px 0 0 -2px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-#fp-nav ul li,
-.fp-slidesNav ul li {
-  height: 43px;
-}
-</style>
+    <meta name="description" content="三千石数据有限公司-专业打造深度学习平台">
+    <link rel="stylesheet" id="dashicons-css" href="static/dashicons.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="obfx-module-pub-css-menu-icons-0-css" href="static/font-awesome.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="contact-form-7-css" href="static/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" id="edd-styles-css" href="static/edd.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce-layout-css" href="static/woocommerce-layout.css" type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce-smallscreen-css" href="static/woocommerce-smallscreen.css" type="text/css" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" id="woocommerce-general-css" href="static/woocommerce.css" type="text/css" media="all">
+    <link rel="stylesheet" id="megamenu-css" href="static/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="parallax-one-fonts-css" href="static/sanye.css" type="text/css" media="all">
+    <link rel="stylesheet" id="parallax-one-bootstrap-style-css" href="static/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="parallax-one-font-awesome-css" href="static/font-awesome.min(1).css" type="text/css" media="all">
+    <link rel="stylesheet" id="parallax-one-style-css" href="static/style(1).css" type="text/css" media="all">
+    <link rel="stylesheet" id="scss-css" href="static/sccss.css" type="text/css" media="all">
+    <link rel="stylesheet" id="sib-front-css-css" href="static/mailin-front.css" type="text/css" media="all">
+    <link type="text/css" href="static/optanon.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
 </head>
-<body>
 
+<body class="home blog mega-menu-primary" dir="ltr" rlt="1" style="">
+    <div id="mobilebgfix">
+        <div class="mobile-bg-fix-img-wrap">
+            <div class="mobile-bg-fix-img"></div>
+        </div>
+        <div class="mobile-bg-fix-whole-site">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <div class="preloader" style="display: none;">
+                <div class="status" style="display: none;">&nbsp;</div>
+            </div>
+            <header id="masthead" role="banner" data-stellar-background-ratio="0.5" class="header header-style-one site-header" style="opacity: 1;">
+                <div class="overlay-layer-nav sticky-navigation-open" style="min-height: 70px;">
+                    <div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation appear-on-scroll">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button title="Toggle Menu" type="button" class="navbar-toggle menu-toggle" id="menu-toggle" data-toggle="collapse" data-target="#menu-primary">
+                                    <span class="screen-reader-text">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a href="#" class="navbar-brand">
+                                    <img src="static/logo.png" alt="Parallax One" class="lazyloading" data-was-processed="true">
+                                    <span>三千石数据</span>
+                                </a>
+                                <div class="header-logo-wrap text-header paralax_one_only_customizer">
+                                    <h1 itemprop="headline" id="site-title" class="site-title">
+                                        <a href="" rel="home">Parallax One</a>111111111
+                                    </h1>
+                                    <p itemprop="description" id="site-description" class="site-description">Just another WordPress site by Themeisle</p>
+                                </div>
+                            </div>
+                            <div aria-label="Primary Menu" id="menu-primary" class="navbar-collapse collapse">
+                                <div id="site-header-menu" class="site-header-menu">
+                                    <nav id="site-navigation" class="main-navigation" role="navigation">
+                                        <div id="mega-menu-wrap-primary" class="mega-menu-wrap">
+                                            <div class="mega-menu-toggle" tabindex="0">
+                                                <div class="mega-toggle-block mega-menu-toggle-block mega-toggle-block-right mega-toggle-block-1" id="mega-toggle-block-1"></div>
+                                            </div>
+                                            <ul id="mega-menu-primary" class="mega-menu mega-menu-horizontal" data-event="hover_intent" data-effect="disabled" data-effect-speed="200"
+                                                data-effect-mobile="disabled" data-effect-speed-mobile="200" data-second-click="close"
+                                                data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="600"
+                                                data-unbind="true">
+                                                <li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-current-menu-item mega-current_page_item mega-menu-item-home mega-align-bottom-left mega-menu-flyout mega-menu-item-6158"
+                                                    id="mega-menu-item-6158">
+                                                    <a class="mega-menu-link" href="#story" tabindex="0">公司简介</a>
+                                                </li>
+                                                <li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-current-menu-item mega-current_page_item mega-menu-item-home mega-align-bottom-left mega-menu-flyout mega-menu-item-6159"
+                                                    id="mega-menu-item-6159">
+                                                    <a class="mega-menu-link" href="#team" tabindex="0">创始团队</a>
+                                                </li>
+                                                <li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-current-menu-item mega-current_page_item mega-menu-item-home mega-align-bottom-left mega-menu-flyout mega-menu-item-6160"
+                                                    id="mega-menu-item-6160">
+                                                    <a class="mega-menu-link" href="#customers" tabindex="0">组织结构</a>
+                                                </li>
+                                                <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-6163"
+                                                    id="mega-menu-item-6163">
+                                                    <a class="mega-menu-link" href="#ribbon" tabindex="0">技术优势</a>
+                                                </li>
+                                                <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-6164"
+                                                    id="mega-menu-item-6164">
+                                                    <a class="mega-menu-link" href="#latestnews" tabindex="0">研发案例</a>
+                                                </li>
+                                                <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-6165"
+                                                    id="mega-menu-item-6165">
+                                                    <a class="mega-menu-link" href="#contactinfo" tabindex="0">联系我们</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="parallax_move" style="width: 100%;  position: absolute; transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;">
+                        <li class="layer layer1" data-depth="0.10" style="background-image: url(&quot;static/background1.jpg&quot;); height: 873px; transform: translate3d(-2.79318px, 0.6984px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;"></li>
+                        <li class="layer layer2" data-depth="0.20" style="background-image: url(); height: 873px; transform: translate3d(-5.58635px, 1.3968px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: absolute; display: block; left: 0px; top: 0px;"></li>
+                    </ul>
+                    <div class="overlay-layer-wrap">
+                        <div class="container overlay-layer" id="parallax_header" style="padding-top: 154px;">
+                            <div class="only-logo">
+                                <div id="only-logo-inner" class="navbar">
+                                    <div id="parallax_only_logo" class="navbar-header">
+                                        <img src="static/logo.png" alt="Parallax One">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 intro-section-text-wrap">
+                                    <div id="intro-section" class="intro-section">
+                                        <h2 id="intro_section_text_1" class="intro white-text">三千石数据有限公司</h2>
+                                        <h5 id="intro_section_text_2" class="white-text">WEALTH IS ACCUMULATED OVER TIME </h5>
+                                        <a href="#story" class="btn btn-primary standard-button inpage-scroll inpage_scroll_btn">
+                                            公司简介
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div itemprop="" id="content" class="content-warp" role="main">
+                <section class="brief text-left brief-design-one brief-left" id="story" role="region" aria-label="About">
+                    <div class="section-overlay-layer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 brief-content-two">
+                                    <div class="brief-image-right">
+                                        <img src="static/office.jpg" alt=" About" class="lazyloading" data-was-processed="true">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 content-section brief-content-one">
+                                    <h2 class="text-left dark-text">三千石数据</h2>
+                                    <div class="colored-line-left"></div>
+                                    <div class="sub-heading">About Our Company</div>
+                                    <div class="brief-content-text">
+                                        三千石数据有限公司成立于2017年8月，是四川创新产业孵化出的移动互联网公司，位于绵阳市软件孵化园。
+                                        <br>
 
+                                        <ul class="about-us-ul">
+                                            <li>专业从事神经网络深度学习研究、大数据、人脸识别、办公自动化等应用开发。</li>
+                                            <li>团队以雄厚的技术实力、多年的互联网行业经验为依托，主要服务于政府、企业等主要部门，立足于打造智慧楼宇、智慧政务。</li>
+                                            <li>我们的团队由国内从事移动互联网开发和设计的专业人才组成，拥有成功上线
+                                                <strong>10个 </strong>以上产品开发经验。
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- <section class="services" id="services" role="region" aria-label="Services">
+                <div class="section-overlay-layer">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2 class="dark-text">Flagship Features</h2>
+                            <div class="colored-line"></div>
+                            <div class="sub-heading">What makes this parallax WordPress theme unique.</div>
+                        </div>
+                        <div id="our_services_wrap" class="services-wrap
+our_services_wrap_piterest parallax_one_grid parallax_one_grid_gwMYELECzw">
+                            <div class="parallax_one_grid_col_3 parallax_one_grid_column_1 parallax_one_grid_first ">
+                                <div class="service-box" parallax_onegrid-attr="this-0">
+                                    <div class="single-service border-bottom-hover">
+                                        <div class="service-icon colored-text">
+                                            <span class="fa icon-arrows-expand"></span>
+                                        </div>
+                                        <h3 class="colored-text">Parallax Effects</h3>
+                                        <p>Create memorable and unique pages with smooth parallax scrolling effects that everyone loves.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="parallax_one_grid_col_3 parallax_one_grid_column_2  ">
+                                <div class="service-box" parallax_onegrid-attr="this-1">
+                                    <div class="single-service border-bottom-hover">
+                                        <div class="service-icon colored-text">
+                                            <span class="fa icon-basic-webpage-img-txt"></span>
+                                        </div>
+                                        <h3 class="colored-text">Single-Page Design</h3>
+                                        <p>Tell a story with your website, take your visitors by the hand and guide them from section to section.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="parallax_one_grid_col_3 parallax_one_grid_column_3 parallax_one_grid_last ">
+                                <div class="service-box" parallax_onegrid-attr="this-2">
+                                    <div class="single-service border-bottom-hover">
+                                        <div class="service-icon colored-text">
+                                            <span class="fa icon-basic-elaboration-document-graph"></span>
+                                        </div>
+                                        <h3 class="colored-text">Custom Content Blocks</h3>
+                                        <p>Showcase your team, products, client testimonials, about info, and more. Everything translation ready.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
 
+                <section class="team" id="team" role="region" aria-label="Team">
+                    <div class="section-overlay-layer">
+                        <div class="container">
+                            <div class="section-header">
+                                <h2 class="dark-text">创始团队</h2>
+                                <div class="colored-line"></div>
+                                <div class="sub-heading">BAYES RULE</div>
+                            </div>
+                            <div class="row team-member-wrap">
+                                <div class="col-md-6 team-member-box">
+                                    <div class="team-member border-bottom-hover">
+                                        <div class="member-pic">
+                                            <img src="static/sanye.jpg" alt="刘 余">
+                                        </div>
+                                        <div class="member-details" style="height: 261px;">
+                                            <div class="member-details-inner">
+                                                <h3 class="colored-text"> 刘 余</h3>
+                                                <div class="small-text" style="padding: 0 10px;">
+                                                    公司创始人刘余2001创办四川三千石软件有限公司、三千石网络科技有限公司等，神经网络芯片设计师，深度学习贝叶斯学派专家。</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 team-member-box">
+                                    <div class="team-member border-bottom-hover">
+                                        <div class="member-pic">
+                                            <img src="static/wp.jpg" alt="George Walker">
+                                        </div>
+                                        <div class="member-details" style="height: 261px;">
+                                            <div class="member-details-inner">
+                                                <h3 class="colored-text">文 平 </h3>
+                                                <div class="small-text" style="padding: 0 10px;">
+                                                    联合创始人,三千石软件公司董事长，智能制造专家，有着多年的团队、项目管理经验,先后做了ERP、CRM、OA、CMS等项目。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="testimonials" id="customers" role="region" aria-label="Testimonials">
+                    <div class="section-overlay-layer">
+                        <div class="container">
+                            <div class="section-header">
+                                <h2 class="dark-text">组织结构</h2>
+                                <div class="colored-line"></div>
+                                <div class="sub-heading">YOU THE MAN</div>
+                            </div>
+                            <div id="happy_customers_wrap" class="testimonials-wrap happy_customers_wrap_piterest parallax_one_grid parallax_one_grid_Gl05kuOEGo">
+                                <div class="parallax_one_grid_col_3 parallax_one_grid_column_1 parallax_one_grid_first ">
+                                    <div class="testimonials-box" parallax_onegrid-attr="this-0">
+                                        <div class="feedback border-bottom-hover">
+                                            <div class="pic-container">
+                                                <div class="pic-container-inner">
+                                                    <img src="static/dl.jpg" alt="Eusebia Bărlâdeanu">
+                                                </div>
+                                            </div>
+                                            <div class="feedback-text-wrap">
+                                                <h4 class="colored-text"> 深度学习实验室</h4>
+                                                <ul style="text-align: left;">
+                                                    <li>研究深度学习技术发展趋势，探索新算法、新模型的可能性；</li>
+                                                    <li>研究了解深度学习动态，制定深度学习开发的经济、市场和技术方案；</li>
+                                                    <li>领导和组织深度学习产品开发工作并组织实施。</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="parallax_one_grid_col_3 parallax_one_grid_column_2  ">
+                                    <div class="testimonials-box" parallax_onegrid-attr="this-1">
+                                        <div class="feedback border-bottom-hover">
+                                            <div class="pic-container">
+                                                <div class="pic-container-inner">
+                                                    <img src="static/bd.jpg" alt="Eusebia Bărlâdeanu">
+                                                </div>
+                                            </div>
+                                            <div class="feedback-text-wrap">
+                                                <h4 class="colored-text">大数据研发中心</h4>
+                                                <ul style="text-align: left;">
+                                                    <li>由大数据领域领军专家组建,致力于构建大数据行业的“贝尔实验室”</li>
+                                                    <li>定位为连接政府、企业、高校、资本和创业型企业的纽带和中枢</li>
+                                                    <li>致力建设成为在学科、学术、技术、产业、机制五方面大型平台</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="parallax_one_grid_col_3 parallax_one_grid_column_3 parallax_one_grid_last ">
+                                    <div class="testimonials-box" parallax_onegrid-attr="this-2">
+                                        <div class="feedback border-bottom-hover">
+                                            <div class="pic-container">
+                                                <div class="pic-container-inner">
+                                                    <img src="static/coffee.jpg" alt="Georgian Hrușcă">
+                                                </div>
+                                            </div>
+                                            <div class="feedback-text-wrap">
+                                                <h4 class="colored-text"> 商务部</h4>
+                                                <ul style="text-align: left;">
+                                                    <li>维系厂商合作伙伴关系,保证现有项目收入稳步增长</li>
+                                                    <li>深度发掘合作伙伴需求，寻找新的合作点，拓展新项目</li>
+                                                    <li>策划、组织和督导所负责项目的市场推广活动</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="call-to-action ribbon-wrap" id="ribbon" style="background-image:url(https://demot-vertigostudio.netdna-ssl.com/parallax-one/wp-content/themes/Parallax-One/images/background-images/parallax-img/parallax-img1.jpg);"
+                    role="region" aria-label="Ribbon">
+                    <div class="section-overlay-layer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <h2 class="white-text strong">
+                                        采用DNN中深层卷积架构，应用成熟的训练模型对BD进行深度训练，为政府决策、企业智能制造提供云平台服务
+                                    </h2>
+                                    <a href="#latestnews" class="btn btn-primary standard-button inpage-scroll inpage_scroll_btn">
+                                        查看案例</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="brief timeline" id="latestnews" role="region" aria-label="Latest blog posts">
+                    <div class="section-overlay-layer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 timeline-text text-left">
+                                    <h2 class="text-left dark-text">实验室案例</h2>
+                                    <div class="colored-line-left"></div>
+                                    <div class="sub-heading">Laboratory Case</div>
+                                </div>
+                                <div class="parallax-slider-whole-wrap">
+                                    <div class="controls-wrap">
+                                        <button class="control_next icon icon-arrow-carrot-down">
+                                            <span class="screen-reader-text">Slide Down</span>
+                                        </button>
+                                        <button class="control_prev fade-btn icon icon-arrow-carrot-up">
+                                            <span class="screen-reader-text">Slide Up</span>
+                                        </button>
+                                    </div>
+                                    <div id="parallax_slider" class="col-md-12 timeline-section">
+                                        <ul class="vertical-timeline" id="timeline-scroll" style="height: 964px; top: 0px;">
+                                            <li>
+                                                <div id="post-4900" class="timeline-box-wrap" title="Latest News: Everything Mobile-Friendly and Responsive">
+                                                    <div class="entry-published date small-text strong">
+                                                        2018,07</div>
+                                                    <div class="icon-container white-text">
+                                                        <a href="javascript:;" title="Everything Mobile-Friendly and Responsive">
+                                                            <img width="150" height="150" src="static/qbyp.jpg" class="attachment-parallax-one-post-thumbnail-latest-news size-parallax-one-post-thumbnail-latest-news wp-post-image"> </a>
+                                                    </div>
+                                                    <div class="info">
+                                                        <header class="entry-header">
+                                                            <h3 itemprop="headline" class="entry-title">
+                                                                <a href="javascript:;" rel="bookmark">情报研判系统</a>
+                                                            </h3>
+                                                            <div class="entry-meta">
+                                                                <span> 稳定版本 V 23</span>
+                                                            </div>
+                                                        </header>
+                                                        <div itemprop="description" class="entry-content entry-summary">
+                                                            <p>针对 GPU 架构高度优化的深度学习算法。基于深度学习的模糊人脸搜索技术，提供人脸检索、身份验证、人像库查重服务，协助公安快速通过人脸识别身份。基于人脸识别进行案件管理和串并案分析,</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="post-4902" class="timeline-box-wrap" title="Latest News: Everything Mobile-Friendly and Responsive">
+                                                    <div class="entry-published date small-text strong">
+                                                        2018,04</div>
+                                                    <div class="icon-container white-text">
+                                                        <a href="javascript:;" title="Everything Mobile-Friendly and Responsive">
+                                                            <img width="150" height="150" src="static/zhihui.jpg" class="attachment-parallax-one-post-thumbnail-latest-news size-parallax-one-post-thumbnail-latest-news wp-post-image"> </a>
+                                                    </div>
+                                                    <div class="info">
+                                                        <header class="entry-header">
+                                                            <h3 itemprop="headline" class="entry-title">
+                                                                <a href="javascript:;" rel="bookmark">三千石人脸识别</a>
+                                                            </h3>
+                                                            <div class="entry-meta">
+                                                                <span> 稳定版本 V 1.1.1</span>
+                                                            </div>
+                                                        </header>
+                                                        <div itemprop="description" class="entry-content entry-summary">
+                                                            <p>提供基于视频流的多路人脸检测、跟踪、特征提取和比对检索等功能，秒级输出人脸比对结果，单 GPU 卡入库速度每分钟达 3 万张高性价比，高扩展性单GPU卡最多可同时分析12
+                                                                路 高清实时视频。</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-<div id="fullpage">
-	<div class="section one">
-		<div class="wrap">
-			<h1>REAT / REACT NATIVE / ANTD </h1>
-			<h2>/ RESTFUL / .NET / DATABASE / 全栈, 十八般武艺都用，碎片化记忆而已。</h2>
-			<div class="cta"><span>Sanye's Blog</span></div>
-		</div>
-	</div>
-	<div class="section two">
-		<div class="wrap">
-			<h1>Wealth</h1>
-			<h2>都是用时间堆积起来的财富。如果你觉得跟你的业务吻合，拿走。</h2>
-			<div class="cta"><span>Products</span></div>
-		</div>
-	</div>
-	<div class="section three">
-		<div class="wrap">
-			<h1>You The Man</h1>
-			<h2>欢迎业务联系 / QQ： 42625647 <br />信息系统规划 / 开发(APP/PC/WEIXIN/ANT) / 数据库维护 / 硬件网络</h2>
-			<div class="cta"><span>Mail Us</span></div>
-		</div>
-	</div>
-</div>
+                                            </li>
+                                            <li>
+                                                <div id="post-4902" class="timeline-box-wrap" title="Latest News: Everything Mobile-Friendly and Responsive">
+                                                    <div class="entry-published date small-text strong">
+                                                        2018,05</div>
+                                                    <div class="icon-container white-text">
+                                                        <a href="javascript:;" title="Everything Mobile-Friendly and Responsive">
+                                                            <img width="150" height="150" src="static/zdjs.jpg" class="attachment-parallax-one-post-thumbnail-latest-news size-parallax-one-post-thumbnail-latest-news wp-post-image"> </a>
+                                                    </div>
+                                                    <div class="info">
+                                                        <header class="entry-header">
+                                                            <h3 itemprop="headline" class="entry-title">
+                                                                <a href="javascript:;" rel="bookmark">AI自动驾驶系统</a>
+                                                            </h3>
+                                                            <div class="entry-meta">
+                                                                <span> 稳定版本 V 1.0</span>
+                                                            </div>
+                                                        </header>
+                                                        <div itemprop="description" class="entry-content entry-summary">
+                                                            <p>深度卷积神经网络,快速有效学习的智能培训流程,无需大型模型、花式传感器和无穷无尽的数据, 系统能够自动避障、处理交通灯、环形交叉路口和交叉路口。
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="post-4900" class="timeline-box-wrap" title="Latest News: Everything Mobile-Friendly and Responsive">
+                                                    <div class="entry-published date small-text strong">
+                                                        2018,03</div>
+                                                    <div class="icon-container white-text">
+                                                        <a href="javascript:;" title="Everything Mobile-Friendly and Responsive">
+                                                            <img width="150" height="150" src="static/swsb.jpg" class="attachment-parallax-one-post-thumbnail-latest-news size-parallax-one-post-thumbnail-latest-news wp-post-image"> </a>
+                                                    </div>
+                                                    <div class="info">
+                                                        <header class="entry-header">
+                                                            <h3 itemprop="headline" class="entry-title">
+                                                                <a href="javascript:;" rel="bookmark">声纹识别云平台</a>
+                                                            </h3>
+                                                            <div class="entry-meta">
+                                                                <span> 稳定版本 V 0.60</span>
+                                                            </div>
+                                                        </header>
+                                                        <div itemprop="description" class="entry-content entry-summary">
+                                                            <p>语音波形中反映说话人生理和行为特征的语音参数，自动识别说话人身份的云平台。在任何时候，只需输入说话者的语音，依靠独特的声纹便可被安全地鉴别。适用于电话信道中远程控制的非接触式生物识别。
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="contact-info" id="contactinfo" role="region" aria-label="Contact Info">
+                    <div class="section-overlay-layer">
+                        <div class="container">
+                            <div class="row contact-links">
+                                <div class="col-sm-4 contact-link-box col-xs-12">
+                                    <div class="icon-container">
+                                        <span class="fa icon-basic-mail colored-text"></span>
+                                    </div>业务洽谈
+                                    <br>
+                                    <a href="#" class="strong">42625647@qq.com</a>
+                                </div>
+                                <div class="col-sm-4 contact-link-box col-xs-12">
+                                    <div class="icon-container">
+                                        <span class="fa icon-basic-geolocalize-01 colored-text"></span>
+                                    </div>
+                                    <a href="#" class="strong">绵阳市科创区创新中心
+                                        <br> 蜂创加速工场 2号楼228室</a>
+                                </div>
+                                <div class="col-sm-4 contact-link-box col-xs-12">
+                                    <div class="icon-container">
+                                        <span class="fa icon-basic-tablet colored-text"></span>
+                                    </div>纯技术探讨
+                                    <br>
+                                    <a href="#" class="strong">18681660987
+                                        <br>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<script type="text/javascript">
-(function() {
-  $('#fullpage').fullpage({
-    navigation: true,
-  });  
-})();
+            </div>
+            <footer id="footer" class="footer grey-bg">
+                蜀ICP备18070000号-1 &nbsp @三千石数据有限公司
+            </footer>
+        </div>
+    </div>
 
-$(document).ready(function(){
-  $('.one .cta').click( function(){
-     document.location = 'https://github.com/cppshooter/cppshooter.github.io';
-  });
-  $('.two .cta').click(function(){
-	 document.location = 'https://github.com/cppshooter';
-  });
-  $('.three .cta').click( function(){
-     window.open('mailto:cppshooter@hotmail.com');
-  });
-});
-</script>
-
+    <link rel="stylesheet" id="intergeo-frontend-css" href="static/frontend.css" type="text/css" media="all">
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var wpcf7 = {
+            "apiSettings": {
+                "root": "https:\/\/demo.themeisle.com\/parallax-one\/wp-json\/contact-form-7\/v1",
+                "namespace": "contact-form-7\/v1"
+            },
+            "recaptcha": {
+                "messages": {
+                    "empty": "Please verify that you are not a robot."
+                }
+            },
+            "cached": "1"
+        }; /* ]]> */
+    </script>
+    <script type="text/javascript" src="static/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/custom.home.js"></script>
+    <style type="text/css">
+        .overlay-layer-wrap {
+            background: rgba(0, 0, 0, .7)
+        }
+    </style>
 </body>
-</html>
 
+</html>
